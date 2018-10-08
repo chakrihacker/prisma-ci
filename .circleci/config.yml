@@ -1,15 +1,30 @@
 version: 2
 jobs:
   build:
+    machine: true
     working_directory: ~/prisma-ci
-    docker:
-      - image: circleci/node
-      - image: prismagraphql/prisma:1.17
-      - image: mysql:5.7
     steps:
       - checkout
+      - run:
+          name: Install node
+          command: |
+            set +e             
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install v8.4.0
+            nvm alias default v8.4.0
+            # Each step uses the same `$BASH_ENV`, so need to modify it
+            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+            echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Setup Prisma Server
+          command: |
+            cd prisma
+            docker-compose up -d
+            docker ps
       - run:
           name: Install node_modules
           command: yarn install
