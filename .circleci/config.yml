@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/prisma-ci
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: Start Prisma Basic Node
+          command: |
+            cd prisma
+            docker-compose up -d
+            docker ps
+            yarn
+            sleep 20
+            ./node_modules/.bin/prisma deploy
+            yarn test

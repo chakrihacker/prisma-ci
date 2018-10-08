@@ -1,0 +1,22 @@
+{
+  "name": "prisma-ci",
+  "version": "0.0.1",
+  "description": "Testing ci for prisma",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^14.0.2",
+    "graphql-yoga": "^1.16.2",
+    "prisma-client-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "graphql-resolver-codegen": "^0.0.3",
+    "prisma": "^1.17.1"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "prisma": "cd prisma && prisma",
+    "graphql-resolver-codegen": "graphql-resolver-codegen",
+    "test": "echo No Tests Found"
+  }
+}
