@@ -19,7 +19,7 @@ jobs:
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"" >> $BASH_ENV
             curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
             echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-            sudo apt-get install --no-install-recommends yarn
+            sudo apt-get update && sudo apt-get install --no-install-recommends yarn
       - restore_cache: # special step to restore the dependency cache
           key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
