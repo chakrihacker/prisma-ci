@@ -30,13 +30,13 @@ jobs:
           paths:
             - ~/.cache/yarn
       - run:
-          name: Setup Prisma Server
+          name: Setup Prisma Server and deploy
           command: |
             cd prisma
             docker-compose up -d
             docker ps
+            sleep 20
             yarn prisma deploy
       - run:
-          name: Deploy and run tests
-          command: |
-            yarn test
+          name: run tests
+          command: yarn test
