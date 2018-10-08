@@ -4,8 +4,8 @@ jobs:
     working_directory: ~/prisma-ci
     docker:
       - image: circleci/node
-      - image: prismagraphql/prisma
-      - image: circleci/mysql
+      - image: prismagraphql/prisma:1.17
+      - image: mysql:5.7
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
