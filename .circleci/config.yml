@@ -4,15 +4,21 @@ jobs:
     working_directory: ~/prisma-ci
     docker:
       - image: circleci/node
+      - image: prismagraphql/prisma
+      - image: circleci/mysql
     steps:
       - checkout
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Start Prisma Basic Node
+          name: Install node_modules
+          command: yarn install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Deploy and run tests
           command: |
-            cd prisma
-            docker-compose up -d
-            docker ps
-            yarn
-            sleep 20
             ./node_modules/.bin/prisma deploy
             yarn test
