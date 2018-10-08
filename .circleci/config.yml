@@ -35,8 +35,8 @@ jobs:
             cd prisma
             docker-compose up -d
             docker ps
+            yarn prisma deploy
       - run:
           name: Deploy and run tests
           command: |
-            yarn prisma deploy
             yarn test
