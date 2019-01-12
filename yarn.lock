@@ -2481,7 +2481,7 @@ graphql-request@^1.3.4, graphql-request@^1.4.0, graphql-request@^1.5.0:
   dependencies:
     cross-fetch "2.2.2"
 
-graphql-resolver-codegen@^0.0.3:
+graphql-resolver-codegen@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/graphql-resolver-codegen/-/graphql-resolver-codegen-0.0.3.tgz#18be8cdeff90a3efddc50be683b48fa25299370a"
   integrity sha512-nVbbD3VGoLF0ifI7Cl5iMUPSUT5h2p6NByPN0JP7M8vtZOAHetK0FU+zHR+RUoGzMaVnG7iLYGqlnsxpKtou6Q==
@@ -4875,7 +4875,7 @@ prisma-yml@1.17.1:
     scuid "^1.0.2"
     yaml-ast-parser "^0.0.40"
 
-prisma@^1.17.1:
+prisma@1.17.1:
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-1.17.1.tgz#00e155a205f16815a688ec996590ca86e53d138b"
   integrity sha512-3WBVN1AyPhAvP9KAk9YnU/2DJy2qbilJLabXlxoEVLqY2gYBnDhKeciFj0CLvl9s4SnhMazdIPpemavQP+lvCg==
