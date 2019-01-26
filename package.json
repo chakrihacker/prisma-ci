@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "graphql": "^14.0.0",
-    "graphql-yoga": "1.17.0",
+    "graphql-yoga": "1.17.1",
     "prisma-client-lib": "^1.17.1"
   },
   "devDependencies": {
