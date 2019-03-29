@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "graphql-resolver-codegen": "0.0.3",
-    "prisma": "1.24.0"
+    "prisma": "1.29.2"
   },
   "scripts": {
     "start": "node src/index.js",
